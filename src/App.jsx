@@ -2,8 +2,6 @@ import './App.css'
 
 const links = {
   github: 'https://github.com/ameliabrooks28',
-  linkedin: 'https://www.linkedin.com/in/amelia-brooks-9b5b603a1',
-  email: 'mailto:amelia.e.brooks.28@dartmouth.edu',
 }
 
 function GithubIcon() {
@@ -14,19 +12,131 @@ function GithubIcon() {
   )
 }
 
-function LinkedinIcon() {
+function QuestionIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z" />
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9.5" stroke="currentColor" strokeWidth="1.8" />
+      <text x="12" y="16.3" textAnchor="middle" fontSize="11" fontWeight="700" fill="currentColor">
+        ?
+      </text>
     </svg>
   )
 }
 
-function MailIcon() {
+function DataIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-      <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
-      <path d="m3.5 6 8.5 7 8.5-7" />
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3.5" y="12" width="4" height="8.5" rx="1" fill="currentColor" />
+      <rect x="10" y="6.5" width="4" height="14" rx="1" fill="currentColor" />
+      <rect x="16.5" y="3" width="4" height="17.5" rx="1" fill="currentColor" />
+    </svg>
+  )
+}
+
+function MethodsIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M6.3 11 10 7.3M6.3 13 10 16.7M14 7.3 17.7 11M14 16.7 17.7 13"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <circle cx="4.5" cy="12" r="2.3" fill="currentColor" />
+      <circle cx="12" cy="5.5" r="2.3" fill="currentColor" />
+      <circle cx="12" cy="18.5" r="2.3" fill="currentColor" />
+      <circle cx="19.5" cy="12" r="2.3" fill="currentColor" />
+    </svg>
+  )
+}
+
+function ResultsIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M3.5 17 9 10.5l4 3.5 7-8.5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M16.5 5h4.5v4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function TakeawaysIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M9.5 18.5h5M10.3 21h3.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path
+        d="M12 3a6.2 6.2 0 0 0-3.6 11.2c.6.44.9 1.1.9 1.8h5.4c0-.7.3-1.36.9-1.8A6.2 6.2 0 0 0 12 3Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+const heroNodes = [
+  { x: 55, y: 55, r: 5, color: 'flag' },
+  { x: 105, y: 30, r: 4, color: 'flag' },
+  { x: 35, y: 120, r: 4.5, color: 'flag' },
+  { x: 150, y: 80, r: 4, color: 'accent' },
+  { x: 90, y: 175, r: 5, color: 'accent-2' },
+  { x: 195, y: 140, r: 4, color: 'flag' },
+  { x: 225, y: 55, r: 4, color: 'accent-2' },
+  { x: 265, y: 115, r: 5, color: 'accent' },
+  { x: 150, y: 220, r: 4, color: 'flag' },
+  { x: 305, y: 175, r: 4, color: 'accent-2' },
+  { x: 235, y: 215, r: 3.5, color: 'flag' },
+  { x: 335, y: 245, r: 4, color: 'accent' },
+]
+
+const heroEdges = [
+  [0, 1],
+  [0, 2],
+  [1, 3],
+  [2, 4],
+  [3, 6],
+  [3, 5],
+  [4, 5],
+  [4, 8],
+  [5, 7],
+  [6, 7],
+  [7, 9],
+  [8, 10],
+  [9, 11],
+  [10, 11],
+]
+
+function HeroGraphic() {
+  const target = { x: 385, y: 300 }
+  return (
+    <svg className="hero__graphic" viewBox="0 0 460 400" fill="none" aria-hidden="true">
+      <g stroke="var(--text-muted)" strokeWidth="1" opacity="0.35">
+        {heroEdges.map(([a, b], i) => {
+          const from = heroNodes[a]
+          const to = heroNodes[b]
+          return <line key={i} x1={from.x} y1={from.y} x2={to.x} y2={to.y} />
+        })}
+        <line x1={heroNodes[9].x} y1={heroNodes[9].y} x2={target.x} y2={target.y} />
+        <line x1={heroNodes[11].x} y1={heroNodes[11].y} x2={target.x} y2={target.y} />
+        <line x1={heroNodes[7].x} y1={heroNodes[7].y} x2={target.x} y2={target.y} />
+      </g>
+      {heroNodes.map((node, i) => (
+        <circle key={i} cx={node.x} cy={node.y} r={node.r} fill={`var(--${node.color})`} opacity="0.85" />
+      ))}
+      <circle cx={target.x} cy={target.y} r="28" fill="var(--surface)" stroke="var(--accent)" strokeWidth="1.8" />
+      <path
+        d={`M${target.x - 12} ${target.y} l8 8 16-17`}
+        stroke="var(--accent)"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
     </svg>
   )
 }
@@ -47,6 +157,7 @@ function App() {
 
       <main>
         <section className="hero">
+          <HeroGraphic />
           <p className="hero__eyebrow">Research Project &middot; Amelia Brooks, QSS</p>
           <h1 className="hero__title">
             The Influence of <span className="hero__highlight">COVID-19 Misinformation</span> on
@@ -61,26 +172,22 @@ function App() {
             <a className="button button--primary" href="#results">
               Jump to Results
             </a>
-            <a className="button button--ghost" href={links.email}>
-              Get in Touch
-            </a>
-          </div>
-          <div className="hero__socials">
-            <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-              <GithubIcon />
-            </a>
-            <a href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <LinkedinIcon />
-            </a>
-            <a href={links.email} aria-label="Email">
-              <MailIcon />
+            <a className="button button--ghost" href={links.github} target="_blank" rel="noreferrer">
+              <GithubIcon /> View on GitHub
             </a>
           </div>
         </section>
 
         <section className="block" id="question">
-          <p className="block__index">01</p>
-          <h2 className="section__title">Question</h2>
+          <div className="block__head">
+            <span className="block__icon">
+              <QuestionIcon />
+            </span>
+            <div>
+              <p className="block__index">01</p>
+              <h2 className="section__title">Question</h2>
+            </div>
+          </div>
           <blockquote className="callout">
             Was COVID-19 misinformation belief associated with voting for Trump in the 2020
             presidential election?
@@ -96,8 +203,15 @@ function App() {
         </section>
 
         <section className="block" id="data">
-          <p className="block__index">02</p>
-          <h2 className="section__title">Data</h2>
+          <div className="block__head">
+            <span className="block__icon">
+              <DataIcon />
+            </span>
+            <div>
+              <p className="block__index">02</p>
+              <h2 className="section__title">Data</h2>
+            </div>
+          </div>
           <p className="block__text">
             Data come from two waves of the Pew Research Center&rsquo;s American Trends Panel,
             linked at the respondent level.
@@ -117,8 +231,15 @@ function App() {
         </section>
 
         <section className="block" id="methods">
-          <p className="block__index">03</p>
-          <h2 className="section__title">Methods</h2>
+          <div className="block__head">
+            <span className="block__icon">
+              <MethodsIcon />
+            </span>
+            <div>
+              <p className="block__index">03</p>
+              <h2 className="section__title">Methods</h2>
+            </div>
+          </div>
           <ol className="steps">
             <li className="steps__item">
               Linked the two survey waves to bring misinformation belief, vote choice, and party
@@ -140,8 +261,15 @@ function App() {
         </section>
 
         <section className="block" id="results">
-          <p className="block__index">04</p>
-          <h2 className="section__title">Results</h2>
+          <div className="block__head">
+            <span className="block__icon">
+              <ResultsIcon />
+            </span>
+            <div>
+              <p className="block__index">04</p>
+              <h2 className="section__title">Results</h2>
+            </div>
+          </div>
           <div className="stat-grid">
             <div className="stat-card">
               <p className="stat-card__value">5.35&times;</p>
@@ -161,8 +289,15 @@ function App() {
         </section>
 
         <section className="block" id="takeaways">
-          <p className="block__index">05</p>
-          <h2 className="section__title">Takeaways</h2>
+          <div className="block__head">
+            <span className="block__icon">
+              <TakeawaysIcon />
+            </span>
+            <div>
+              <p className="block__index">05</p>
+              <h2 className="section__title">Takeaways</h2>
+            </div>
+          </div>
           <ul className="takeaways-list">
             <li className="takeaways-list__item">
               The relationship between misinformation belief and voting behavior goes beyond
@@ -176,17 +311,13 @@ function App() {
         </section>
 
         <section className="contact" id="contact">
-          <h2 className="section__title">Questions about this project?</h2>
-          <p className="section__subtitle">Happy to talk through the data, methods, or results.</p>
+          <h2 className="section__title">Explore the project</h2>
+          <p className="section__subtitle">
+            Full code, data cleaning scripts, and analysis are available on GitHub.
+          </p>
           <div className="contact__links">
-            <a className="button button--primary" href={links.email}>
-              <MailIcon /> Email Me
-            </a>
-            <a className="button button--ghost" href={links.github} target="_blank" rel="noreferrer">
-              <GithubIcon /> GitHub
-            </a>
-            <a className="button button--ghost" href={links.linkedin} target="_blank" rel="noreferrer">
-              <LinkedinIcon /> LinkedIn
+            <a className="button button--primary" href={links.github} target="_blank" rel="noreferrer">
+              <GithubIcon /> View on GitHub
             </a>
           </div>
         </section>
