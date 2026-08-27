@@ -6,27 +6,6 @@ const links = {
   email: 'mailto:amelia.e.brooks.28@dartmouth.edu',
 }
 
-const projects = [
-  {
-    title: 'Project One',
-    description: 'A short description of this project goes here — what it does and why it matters.',
-    tags: ['Python', 'Data Analysis'],
-    link: '#',
-  },
-  {
-    title: 'Project Two',
-    description: 'A short description of this project goes here — what it does and why it matters.',
-    tags: ['React', 'JavaScript'],
-    link: '#',
-  },
-  {
-    title: 'Project Three',
-    description: 'A short description of this project goes here — what it does and why it matters.',
-    tags: ['R', 'Statistics'],
-    link: '#',
-  },
-]
-
 function GithubIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -56,27 +35,31 @@ function App() {
   return (
     <>
       <header className="nav">
-        <span className="nav__brand">Amelia Brooks</span>
+        <span className="nav__brand">Misinformation &amp; the 2020 Election</span>
         <nav className="nav__links">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <a href="#question">Question</a>
+          <a href="#data">Data</a>
+          <a href="#methods">Methods</a>
+          <a href="#results">Results</a>
+          <a href="#takeaways">Takeaways</a>
         </nav>
       </header>
 
       <main>
-        <section className="hero" id="about">
-          <p className="hero__eyebrow">Class of 2028 &middot; QSS Major</p>
+        <section className="hero">
+          <p className="hero__eyebrow">Research Project &middot; Amelia Brooks, QSS</p>
           <h1 className="hero__title">
-            Hi, I&rsquo;m <span className="hero__highlight">Amelia Brooks</span>
+            The Influence of <span className="hero__highlight">COVID-19 Misinformation</span> on
+            the 2020 U.S. Presidential Election
           </h1>
           <p className="hero__subtitle">
-            I study Quantitative Social Science, exploring the space where data, code, and human
-            behavior meet. This is a home for what I&rsquo;m building and learning along the way.
+            Was believing COVID-19 misinformation associated with voting for Trump in
+            2020&mdash;and does that relationship hold once political party is taken into
+            account?
           </p>
           <div className="hero__actions">
-            <a className="button button--primary" href="#projects">
-              View Projects
+            <a className="button button--primary" href="#results">
+              Jump to Results
             </a>
             <a className="button button--ghost" href={links.email}>
               Get in Touch
@@ -95,34 +78,106 @@ function App() {
           </div>
         </section>
 
-        <section className="projects" id="projects">
-          <h2 className="section__title">Projects</h2>
-          <p className="section__subtitle">A few things I&rsquo;ve worked on recently.</p>
-          <div className="projects__grid">
-            {projects.map((project) => (
-              <a className="card" href={project.link} key={project.title}>
-                <div className="card__thumb" aria-hidden="true" />
-                <div className="card__body">
-                  <h3 className="card__title">{project.title}</h3>
-                  <p className="card__description">{project.description}</p>
-                  <div className="card__tags">
-                    {project.tags.map((tag) => (
-                      <span className="tag" key={tag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </a>
-            ))}
+        <section className="block" id="question">
+          <p className="block__index">01</p>
+          <h2 className="section__title">Question</h2>
+          <blockquote className="callout">
+            Was COVID-19 misinformation belief associated with voting for Trump in the 2020
+            presidential election?
+          </blockquote>
+          <p className="block__text">
+            This question was motivated by prior research measuring exposure to misinformation
+            from political elites on Twitter, which found a strong relationship between
+            misinformation exposure and political ideology&mdash;more ideologically extreme
+            users were exposed to more misinformation, and that relationship was much stronger
+            among conservative users. That raised a further question: does misinformation
+            belief itself help explain political behavior, like voting, above and beyond party?
+          </p>
+        </section>
+
+        <section className="block" id="data">
+          <p className="block__index">02</p>
+          <h2 className="section__title">Data</h2>
+          <p className="block__text">
+            Data come from two waves of the Pew Research Center&rsquo;s American Trends Panel,
+            linked at the respondent level.
+          </p>
+          <div className="wave-grid">
+            <div className="wave-card">
+              <p className="wave-card__label">Wave 1</p>
+              <p className="wave-card__text">Measures of COVID-19 misinformation belief.</p>
+            </div>
+            <div className="wave-card">
+              <p className="wave-card__label">Wave 2</p>
+              <p className="wave-card__text">
+                Self-reported 2020 presidential vote and political party affiliation.
+              </p>
+            </div>
           </div>
         </section>
 
+        <section className="block" id="methods">
+          <p className="block__index">03</p>
+          <h2 className="section__title">Methods</h2>
+          <ol className="steps">
+            <li className="steps__item">
+              Linked the two survey waves to bring misinformation belief, vote choice, and party
+              affiliation into a single respondent-level dataset.
+            </li>
+            <li className="steps__item">
+              Examined the relationships between misinformation belief, voting for Trump, and
+              political party.
+            </li>
+            <li className="steps__item">
+              Ran a logistic regression predicting a Trump vote from COVID-19 misinformation
+              belief.
+            </li>
+            <li className="steps__item">
+              Ran a second logistic regression adding political party as a covariate to account
+              for it as a potential confounder.
+            </li>
+          </ol>
+        </section>
+
+        <section className="block" id="results">
+          <p className="block__index">04</p>
+          <h2 className="section__title">Results</h2>
+          <div className="stat-grid">
+            <div className="stat-card">
+              <p className="stat-card__value">5.35&times;</p>
+              <p className="stat-card__label">
+                Odds of voting for Trump among misinformation believers, unadjusted
+              </p>
+            </div>
+            <div className="stat-card">
+              <p className="stat-card__value">3.6&times;</p>
+              <p className="stat-card__label">
+                Odds of voting for Trump among misinformation believers, after controlling for
+                political party
+              </p>
+            </div>
+          </div>
+          <div className="figure-placeholder">Figure / chart coming soon</div>
+        </section>
+
+        <section className="block" id="takeaways">
+          <p className="block__index">05</p>
+          <h2 className="section__title">Takeaways</h2>
+          <ul className="takeaways-list">
+            <li className="takeaways-list__item">
+              The relationship between misinformation belief and voting behavior goes beyond
+              just political affiliation.
+            </li>
+            <li className="takeaways-list__item">
+              Misinformation can matter for important political opinions and real decisions and
+              outcomes, not just abstract beliefs.
+            </li>
+          </ul>
+        </section>
+
         <section className="contact" id="contact">
-          <h2 className="section__title">Let&rsquo;s connect</h2>
-          <p className="section__subtitle">
-            Always happy to chat about data, projects, or opportunities.
-          </p>
+          <h2 className="section__title">Questions about this project?</h2>
+          <p className="section__subtitle">Happy to talk through the data, methods, or results.</p>
           <div className="contact__links">
             <a className="button button--primary" href={links.email}>
               <MailIcon /> Email Me
