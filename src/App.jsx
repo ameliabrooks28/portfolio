@@ -1,9 +1,9 @@
 import './App.css'
 
 const links = {
-  github: 'https://github.com/your-username',
-  linkedin: 'https://linkedin.com/in/your-username',
-  email: 'mailto:your.email@example.com',
+  github: 'https://github.com/ameliabrooks28',
+  linkedin: 'https://www.linkedin.com/in/amelia-brooks-9b5b603a1',
+  email: 'mailto:amelia.e.brooks.28@dartmouth.edu',
 }
 
 const projects = [
