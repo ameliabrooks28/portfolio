@@ -1,16 +1,20 @@
 :root {
-  --bg: #f7f7f4;
+  --bg: #faf6ee;
   --surface: #ffffff;
-  --surface-alt: #f1f2ef;
-  --surface-border: rgba(22, 24, 29, 0.09);
-  --text: #191b1f;
-  --text-muted: #5c6270;
-  --accent: #2f5fdd;
-  --accent-soft: rgba(47, 95, 221, 0.1);
-  --accent-2: #0f9d8f;
-  --accent-2-soft: rgba(15, 157, 143, 0.12);
-  --flag: #c2554a;
-  --flag-soft: rgba(194, 85, 74, 0.12);
+  --surface-alt: #f2ece0;
+  --surface-border: rgba(35, 27, 15, 0.1);
+  --text: #241f1a;
+  --text-muted: #6b6255;
+  --accent: #1b2740;
+  --accent-soft: rgba(27, 39, 64, 0.08);
+  --accent-2: #4b7a6f;
+  --accent-2-soft: rgba(75, 122, 111, 0.12);
+  --flag: #b5443b;
+  --flag-soft: rgba(181, 68, 59, 0.12);
+  --header-bg: #16213d;
+  --header-text: #f5f1e6;
+  --header-text-muted: rgba(245, 241, 230, 0.72);
+  --gold: #d9a441;
 
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: light;
@@ -31,8 +35,6 @@ body {
 }
 
 body {
-  background-image: radial-gradient(circle, rgba(25, 27, 31, 0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
   background-color: var(--bg);
   min-height: 100vh;
 }

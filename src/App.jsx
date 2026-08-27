@@ -79,104 +79,51 @@ function TakeawaysIcon() {
   )
 }
 
-const heroNodes = [
-  { x: 55, y: 55, r: 5, color: 'flag' },
-  { x: 105, y: 30, r: 4, color: 'flag' },
-  { x: 35, y: 120, r: 4.5, color: 'flag' },
-  { x: 150, y: 80, r: 4, color: 'accent' },
-  { x: 90, y: 175, r: 5, color: 'accent-2' },
-  { x: 195, y: 140, r: 4, color: 'flag' },
-  { x: 225, y: 55, r: 4, color: 'accent-2' },
-  { x: 265, y: 115, r: 5, color: 'accent' },
-  { x: 150, y: 220, r: 4, color: 'flag' },
-  { x: 305, y: 175, r: 4, color: 'accent-2' },
-  { x: 235, y: 215, r: 3.5, color: 'flag' },
-  { x: 335, y: 245, r: 4, color: 'accent' },
-]
-
-const heroEdges = [
-  [0, 1],
-  [0, 2],
-  [1, 3],
-  [2, 4],
-  [3, 6],
-  [3, 5],
-  [4, 5],
-  [4, 8],
-  [5, 7],
-  [6, 7],
-  [7, 9],
-  [8, 10],
-  [9, 11],
-  [10, 11],
-]
-
-function HeroGraphic() {
-  const target = { x: 385, y: 300 }
-  return (
-    <svg className="hero__graphic" viewBox="0 0 460 400" fill="none" aria-hidden="true">
-      <g stroke="var(--text-muted)" strokeWidth="1" opacity="0.35">
-        {heroEdges.map(([a, b], i) => {
-          const from = heroNodes[a]
-          const to = heroNodes[b]
-          return <line key={i} x1={from.x} y1={from.y} x2={to.x} y2={to.y} />
-        })}
-        <line x1={heroNodes[9].x} y1={heroNodes[9].y} x2={target.x} y2={target.y} />
-        <line x1={heroNodes[11].x} y1={heroNodes[11].y} x2={target.x} y2={target.y} />
-        <line x1={heroNodes[7].x} y1={heroNodes[7].y} x2={target.x} y2={target.y} />
-      </g>
-      {heroNodes.map((node, i) => (
-        <circle key={i} cx={node.x} cy={node.y} r={node.r} fill={`var(--${node.color})`} opacity="0.85" />
-      ))}
-      <circle cx={target.x} cy={target.y} r="28" fill="var(--surface)" stroke="var(--accent)" strokeWidth="1.8" />
-      <path
-        d={`M${target.x - 12} ${target.y} l8 8 16-17`}
-        stroke="var(--accent)"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-    </svg>
-  )
-}
-
 function App() {
   return (
     <>
-      <header className="nav">
-        <span className="nav__brand">Misinformation &amp; the 2020 Election</span>
-        <nav className="nav__links">
-          <a href="#question">Question</a>
-          <a href="#data">Data</a>
-          <a href="#methods">Methods</a>
-          <a href="#results">Results</a>
-          <a href="#takeaways">Takeaways</a>
-        </nav>
+      <header className="masthead">
+        <div className="masthead__topbar">
+          <span className="masthead__brand">Amelia Brooks &middot; QSS</span>
+          <nav className="masthead__nav">
+            <a href="#question">Question</a>
+            <a href="#data">Data</a>
+            <a href="#methods">Methods</a>
+            <a href="#results">Results</a>
+            <a href="#takeaways">Takeaways</a>
+          </nav>
+          <a className="masthead__github" href={links.github} target="_blank" rel="noreferrer">
+            <GithubIcon /> GitHub
+          </a>
+        </div>
+        <div className="masthead__inner">
+          <p className="masthead__eyebrow">QSS20</p>
+          <h1 className="masthead__title">
+            The Influence of <span className="masthead__highlight">COVID-19 Misinformation</span>{' '}
+            on the 2020 U.S. Presidential Election
+          </h1>
+          <p className="masthead__subtitle">
+            Was believing COVID-19 misinformation associated with voting for Trump in 2020, and
+            does that relationship hold once political party and demographic variables are taken
+            into account?
+          </p>
+          <div className="masthead__stats">
+            <div className="masthead__stat">
+              <p className="masthead__stat-value">5.35&times;</p>
+              <p className="masthead__stat-label">Odds of voting Trump, unadjusted</p>
+            </div>
+            <div className="masthead__stat">
+              <p className="masthead__stat-value">3.6&times;</p>
+              <p className="masthead__stat-label">Odds after controlling for party</p>
+            </div>
+          </div>
+        </div>
+        <a className="masthead__scroll" href="#question" aria-label="Scroll to content">
+          &darr;
+        </a>
       </header>
 
       <main>
-        <section className="hero">
-          <HeroGraphic />
-          <p className="hero__eyebrow">Research Project &middot; Amelia Brooks, QSS</p>
-          <h1 className="hero__title">
-            The Influence of <span className="hero__highlight">COVID-19 Misinformation</span> on
-            the 2020 U.S. Presidential Election
-          </h1>
-          <p className="hero__subtitle">
-            Was believing COVID-19 misinformation associated with voting for Trump in
-            2020&mdash;and does that relationship hold once political party is taken into
-            account?
-          </p>
-          <div className="hero__actions">
-            <a className="button button--primary" href="#results">
-              Jump to Results
-            </a>
-            <a className="button button--ghost" href={links.github} target="_blank" rel="noreferrer">
-              <GithubIcon /> View on GitHub
-            </a>
-          </div>
-        </section>
 
         <section className="block" id="question">
           <div className="block__head">
@@ -195,10 +142,10 @@ function App() {
           <p className="block__text">
             This question was motivated by prior research measuring exposure to misinformation
             from political elites on Twitter, which found a strong relationship between
-            misinformation exposure and political ideology&mdash;more ideologically extreme
-            users were exposed to more misinformation, and that relationship was much stronger
-            among conservative users. That raised a further question: does misinformation
-            belief itself help explain political behavior, like voting, above and beyond party?
+            misinformation exposure and political ideology: more ideologically extreme users
+            were exposed to more misinformation, and that relationship was much stronger among
+            conservative users. That raised a further question: does misinformation belief
+            itself help explain voting behavior, above and beyond party?
           </p>
         </section>
 
@@ -213,19 +160,27 @@ function App() {
             </div>
           </div>
           <p className="block__text">
-            Data come from two waves of the Pew Research Center&rsquo;s American Trends Panel,
+            Data come from three waves of the Pew Research Center&rsquo;s American Trends Panel,
             linked at the respondent level.
           </p>
           <div className="wave-grid">
             <div className="wave-card">
-              <p className="wave-card__label">Wave 1</p>
-              <p className="wave-card__text">Measures of COVID-19 misinformation belief.</p>
+              <p className="wave-card__label">Wave 23</p>
+              <p className="wave-card__date">November&ndash;December 2016</p>
+              <p className="wave-card__text">Self-reported 2016 presidential vote.</p>
             </div>
             <div className="wave-card">
-              <p className="wave-card__label">Wave 2</p>
+              <p className="wave-card__label">Wave 63.5</p>
+              <p className="wave-card__date">March 2020</p>
               <p className="wave-card__text">
-                Self-reported 2020 presidential vote and political party affiliation.
+                Measures of COVID-19 misinformation belief, political affiliation, ideology, and
+                demographic characteristics.
               </p>
+            </div>
+            <div className="wave-card">
+              <p className="wave-card__label">Wave 78</p>
+              <p className="wave-card__date">November 2020</p>
+              <p className="wave-card__text">Self-reported 2020 presidential vote.</p>
             </div>
           </div>
         </section>
@@ -242,22 +197,30 @@ function App() {
           </div>
           <ol className="steps">
             <li className="steps__item">
-              Linked the two survey waves to bring misinformation belief, vote choice, and party
-              affiliation into a single respondent-level dataset.
+              Linked the three survey waves to bring misinformation belief, 2020 vote choice,
+              2016 vote choice, and party affiliation &amp; demographics into a single
+              respondent-level data set.
             </li>
             <li className="steps__item">
               Examined the relationships between misinformation belief, voting for Trump, and
               political party.
             </li>
             <li className="steps__item">
-              Ran a logistic regression predicting a Trump vote from COVID-19 misinformation
-              belief.
+              Ran a logistic regression predicting a Trump vote from COVID misinformation belief.
             </li>
             <li className="steps__item">
               Ran a second logistic regression adding political party as a covariate to account
               for it as a potential confounder.
             </li>
+            <li className="steps__item">
+              Ran a third logistic regression further adjusting for age and education.
+            </li>
+            <li className="steps__item">
+              Ran one last logistic regression using the subsample of overlapping respondents in
+              2016 and 2020 to adjust for previous 2016 vote.
+            </li>
           </ol>
+          <div className="figure-placeholder">3 figures for Step 2 coming soon</div>
         </section>
 
         <section className="block" id="results">
@@ -285,7 +248,28 @@ function App() {
               </p>
             </div>
           </div>
-          <div className="figure-placeholder">Figure / chart coming soon</div>
+
+          <div className="stat-card stat-card--wide">
+            <p className="stat-card__value">3.25&times;</p>
+            <p className="stat-card__label">
+              Odds of voting for Trump among misinformation believers, after controlling for
+              political party, age, and education
+            </p>
+          </div>
+          <div className="figure-placeholder">Figure coming soon</div>
+
+          <div className="stat-card stat-card--wide">
+            <p className="stat-card__value">4.50&times; &rarr; 8.41&times;</p>
+            <p className="stat-card__label">
+              Odds of voting for Trump among misinformation believers, after controlling for
+              prior 2016 vote
+            </p>
+            <p className="stat-card__note">
+              Both taken from the subsample of respondents who appeared in both the 2016 and
+              2020 surveys.
+            </p>
+          </div>
+          <div className="figure-placeholder">Figure coming soon</div>
         </section>
 
         <section className="block" id="takeaways">
