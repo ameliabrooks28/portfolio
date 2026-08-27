@@ -183,6 +183,20 @@ function App() {
               <p className="wave-card__text">Self-reported 2020 presidential vote.</p>
             </div>
           </div>
+
+          <div className="measure-note">
+            <p className="measure-note__label">How misinformation belief was measured</p>
+            <p className="measure-note__text">
+              In Wave 63.5, respondents were asked how they believed COVID-19 originated, with
+              three response options: &ldquo;Was developed intentionally in a lab,&rdquo;
+              &ldquo;Doesn&rsquo;t really exist,&rdquo; and &ldquo;Came about naturally.&rdquo;
+              Respondents who chose either of the first two options were coded as holding a
+              COVID-19 misinformation belief. Very few respondents selected &ldquo;Doesn&rsquo;t
+              really exist,&rdquo; so throughout the rest of this page, &ldquo;misinformation
+              believers&rdquo; effectively refers to respondents who believed COVID-19 was
+              developed intentionally in a lab.
+            </p>
+          </div>
         </section>
 
         <section className="block" id="methods">
@@ -197,30 +211,85 @@ function App() {
           </div>
           <ol className="steps">
             <li className="steps__item">
-              Linked the three survey waves to bring misinformation belief, 2020 vote choice,
-              2016 vote choice, and party affiliation &amp; demographics into a single
-              respondent-level data set.
+              <p className="steps__item-text">
+                Linked the three survey waves to bring misinformation belief, 2020 vote choice,
+                2016 vote choice, and party affiliation &amp; demographics into a single
+                respondent-level data set.
+              </p>
             </li>
             <li className="steps__item">
-              Examined the relationships between misinformation belief, voting for Trump, and
-              political party.
+              <p className="steps__item-text">
+                Examined the relationships between misinformation belief, voting for Trump, and
+                political party.
+              </p>
+              <div className="figures-grid">
+                <figure className="figure-card">
+                  <img
+                    src="/figures/figure-1-misinfo-by-party.png"
+                    alt="Bar chart showing COVID-19 misinformation belief by political party"
+                  />
+                  <figcaption>
+                    <span className="figure-card__label">Figure 1 &middot; Misinformation Belief by Party</span>
+                    <span className="figure-card__desc">
+                      Belief in an intentional lab origin is far more common among
+                      Republicans and independents than Democrats.
+                    </span>
+                  </figcaption>
+                </figure>
+                <figure className="figure-card">
+                  <img
+                    src="/figures/figure-2-trump-vote-by-misinfo.png"
+                    alt="Bar chart showing Trump voting by COVID-19 misinformation belief"
+                  />
+                  <figcaption>
+                    <span className="figure-card__label">Figure 2 &middot; Trump Vote by Misinformation Belief</span>
+                    <span className="figure-card__desc">
+                      Respondents who believed in an intentional lab origin voted for Trump
+                      at more than double the rate of those who believed in a natural
+                      origin.
+                    </span>
+                  </figcaption>
+                </figure>
+                <figure className="figure-card">
+                  <img
+                    src="/figures/figure-3-trump-vote-by-misinfo-party.png"
+                    alt="Bar chart showing Trump voting by COVID-19 misinformation belief and political party"
+                  />
+                  <figcaption>
+                    <span className="figure-card__label">Figure 3 &middot; Trump Vote by Belief and Party</span>
+                    <span className="figure-card__desc">
+                      The gap between believers and non-believers holds within every party
+                      group, and is widest among independents.
+                    </span>
+                  </figcaption>
+                </figure>
+              </div>
             </li>
             <li className="steps__item">
-              Ran a logistic regression predicting a Trump vote from COVID misinformation belief.
-            </li>
-            <li className="steps__item">
-              Ran a second logistic regression adding political party as a covariate to account
-              for it as a potential confounder.
-            </li>
-            <li className="steps__item">
-              Ran a third logistic regression further adjusting for age and education.
-            </li>
-            <li className="steps__item">
-              Ran one last logistic regression using the subsample of overlapping respondents in
-              2016 and 2020 to adjust for previous 2016 vote.
+              <p className="steps__item-text">
+                Ran a series of logistic regressions predicting a Trump vote from COVID
+                misinformation belief, adding covariates progressively:
+              </p>
+              <ol className="model-list">
+                <li className="model-list__item">
+                  <span className="model-list__label">Model 1</span>
+                  <span>Unadjusted</span>
+                </li>
+                <li className="model-list__item">
+                  <span className="model-list__label">Model 2</span>
+                  <span>+ political party</span>
+                </li>
+                <li className="model-list__item">
+                  <span className="model-list__label">Model 3</span>
+                  <span>+ age and education</span>
+                </li>
+                <li className="model-list__item">
+                  <span className="model-list__label">Model 4</span>
+                  <span>+ prior 2016 vote (2016&ndash;2020 subsample)</span>
+                </li>
+              </ol>
             </li>
           </ol>
-          <div className="figure-placeholder">3 figures for Step 2 coming soon</div>
         </section>
 
         <section className="block" id="results">
@@ -256,7 +325,20 @@ function App() {
               political party, age, and education
             </p>
           </div>
-          <div className="figure-placeholder">Figure coming soon</div>
+          <figure className="figure-card figure-card--solo">
+            <img
+              src="/figures/figure-4-forest-models-1-3.png"
+              alt="Forest plot of odds ratios for models 1 through 3, showing the association between COVID-19 misinformation belief and Trump voting"
+            />
+            <figcaption>
+              <span className="figure-card__label">Figure 4 &middot; Odds Ratios Across Models 1&ndash;3</span>
+              <span className="figure-card__desc">
+                Point estimates and 95% confidence intervals for the odds of voting for Trump
+                among misinformation believers, as party, age, and education are added as
+                controls.
+              </span>
+            </figcaption>
+          </figure>
 
           <div className="stat-card stat-card--wide">
             <p className="stat-card__value">4.50&times; &rarr; 8.41&times;</p>
@@ -269,7 +351,19 @@ function App() {
               2020 surveys.
             </p>
           </div>
-          <div className="figure-placeholder">Figure coming soon</div>
+          <figure className="figure-card figure-card--solo">
+            <img
+              src="/figures/figure-5-forest-model-4.png"
+              alt="Forest plot of odds ratios for Model 4, comparing the subsample estimate adjusting for party, age, and education against the estimate that also adjusts for prior 2016 vote"
+            />
+            <figcaption>
+              <span className="figure-card__label">Figure 5 &middot; Odds Ratios in the 2016&ndash;2020 Subsample</span>
+              <span className="figure-card__desc">
+                Among respondents observed in both survey waves, adjusting for a
+                respondent&rsquo;s actual 2016 vote nearly doubles the estimated odds ratio.
+              </span>
+            </figcaption>
+          </figure>
         </section>
 
         <section className="block" id="takeaways">
