@@ -275,6 +275,63 @@ main {
   margin: 0;
 }
 
+.table-wrap {
+  max-width: 680px;
+  margin: 1.5rem auto 0;
+  overflow-x: auto;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.table1 {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.table1 caption {
+  caption-side: top;
+  text-align: left;
+  padding: 1.1rem 1.25rem 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.table1 thead th {
+  text-align: left;
+  padding: 0.6rem 1.25rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.table1 tbody td {
+  text-align: left;
+  padding: 0.5rem 1.25rem;
+  border-top: 1px solid var(--surface-border);
+  color: var(--text-muted);
+}
+
+.table1 tbody tr:first-child td {
+  border-top: none;
+}
+
+.table1__group td {
+  background: var(--surface-alt);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-top: 0.65rem;
+  padding-bottom: 0.5rem;
+}
+
 .steps {
   display: flex;
   flex-direction: column;
@@ -318,6 +375,15 @@ main {
 .steps__item-text {
   margin: 0;
   max-width: 620px;
+}
+
+.steps__item-note {
+  margin: 0.5rem 0 0;
+  max-width: 620px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.5;
 }
 
 .figures-grid {

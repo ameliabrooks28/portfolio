@@ -197,6 +197,111 @@ function App() {
               developed intentionally in a lab.
             </p>
           </div>
+
+          <div className="table-wrap">
+            <table className="table1">
+              <caption>
+                Table 1. Characteristics of the primary analysis sample (N = 5,068). Counts and
+                percentages describe the distribution of 2020 presidential vote, COVID-19 origin
+                belief, political party affiliation, age, and education among respondents
+                included in the primary regression analysis.
+              </caption>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>N</th>
+                  <th>%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="table1__group">
+                  <td colSpan="3">2020 Presidential Vote</td>
+                </tr>
+                <tr>
+                  <td>Biden voter</td>
+                  <td>3,299</td>
+                  <td>65.1%</td>
+                </tr>
+                <tr>
+                  <td>Trump voter</td>
+                  <td>1,769</td>
+                  <td>34.9%</td>
+                </tr>
+                <tr className="table1__group">
+                  <td colSpan="3">COVID-19 Origin Belief</td>
+                </tr>
+                <tr>
+                  <td>Natural origin</td>
+                  <td>3,935</td>
+                  <td>77.6%</td>
+                </tr>
+                <tr>
+                  <td>Intentional lab</td>
+                  <td>1,133</td>
+                  <td>22.4%</td>
+                </tr>
+                <tr className="table1__group">
+                  <td colSpan="3">Political Party</td>
+                </tr>
+                <tr>
+                  <td>Dem/Lean Dem</td>
+                  <td>3,118</td>
+                  <td>61.5%</td>
+                </tr>
+                <tr>
+                  <td>Rep/Lean Rep</td>
+                  <td>1,894</td>
+                  <td>37.4%</td>
+                </tr>
+                <tr>
+                  <td>DK/Refused/No lean</td>
+                  <td>56</td>
+                  <td>1.1%</td>
+                </tr>
+                <tr className="table1__group">
+                  <td colSpan="3">Age</td>
+                </tr>
+                <tr>
+                  <td>18&ndash;29</td>
+                  <td>399</td>
+                  <td>7.9%</td>
+                </tr>
+                <tr>
+                  <td>30&ndash;49</td>
+                  <td>1,464</td>
+                  <td>28.9%</td>
+                </tr>
+                <tr>
+                  <td>50&ndash;64</td>
+                  <td>1,666</td>
+                  <td>32.9%</td>
+                </tr>
+                <tr>
+                  <td>65+</td>
+                  <td>1,539</td>
+                  <td>30.4%</td>
+                </tr>
+                <tr className="table1__group">
+                  <td colSpan="3">Education</td>
+                </tr>
+                <tr>
+                  <td>H.S. graduate or less</td>
+                  <td>497</td>
+                  <td>9.8%</td>
+                </tr>
+                <tr>
+                  <td>Some college</td>
+                  <td>1,307</td>
+                  <td>25.8%</td>
+                </tr>
+                <tr>
+                  <td>College graduate+</td>
+                  <td>3,264</td>
+                  <td>64.4%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section className="block" id="methods">
@@ -288,6 +393,11 @@ function App() {
                   <span>+ prior 2016 vote (2016&ndash;2020 subsample)</span>
                 </li>
               </ol>
+              <p className="steps__item-note">
+                Sample size drops from n = 5,068 in Models 1&ndash;3 to n = 1,406 in Model 4,
+                reflecting the subsample of respondents observed in both the 2016 and 2020
+                waves.
+              </p>
             </li>
           </ol>
         </section>
@@ -348,7 +458,7 @@ function App() {
             </p>
             <p className="stat-card__note">
               Both taken from the subsample of respondents who appeared in both the 2016 and
-              2020 surveys.
+              2020 surveys (n = 1,406, down from n = 5,068 in the primary models).
             </p>
           </div>
           <figure className="figure-card figure-card--solo">
