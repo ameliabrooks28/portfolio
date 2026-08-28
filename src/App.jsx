@@ -116,6 +116,10 @@ function App() {
               <p className="masthead__stat-value">3.6&times;</p>
               <p className="masthead__stat-label">Odds after controlling for party</p>
             </div>
+            <div className="masthead__stat">
+              <p className="masthead__stat-value">3.25&times;</p>
+              <p className="masthead__stat-label">Odds after controlling for party, age &amp; education</p>
+            </div>
           </div>
         </div>
         <a className="masthead__scroll" href="#question" aria-label="Scroll to content">
@@ -201,10 +205,10 @@ function App() {
           <div className="table-wrap">
             <table className="table1">
               <caption>
-                Table 1. Characteristics of the primary analysis sample (N = 5,068). Counts and
-                percentages describe the distribution of 2020 presidential vote, COVID-19 origin
-                belief, political party affiliation, age, and education among respondents
-                included in the primary regression analysis.
+                <strong>Table 1. Characteristics of the primary analysis sample (N = 5,068).</strong>{' '}
+                Counts and percentages describe the distribution of 2020 presidential vote,
+                COVID-19 origin belief, political party affiliation, age, and education among
+                respondents included in the primary regression analysis.
               </caption>
               <thead>
                 <tr>
