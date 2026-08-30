@@ -144,12 +144,13 @@ function App() {
             presidential election?
           </blockquote>
           <p className="block__text">
-            This question was motivated by prior research measuring exposure to misinformation
-            from political elites on Twitter, which found a strong relationship between
-            misinformation exposure and political ideology: more ideologically extreme users
-            were exposed to more misinformation, and that relationship was much stronger among
-            conservative users. That raised a further question: does misinformation belief
-            itself help explain voting behavior, above and beyond party?
+            This question was motivated by prior research (Mosleh &amp; Rand) measuring exposure
+            to misinformation from political elites on Twitter, which found a strong
+            relationship between misinformation exposure and political ideology: more
+            ideologically extreme users were exposed to more misinformation, and that
+            relationship was much stronger among conservative users. That raised a further
+            question: does misinformation belief itself help explain voting behavior, above and
+            beyond party?
           </p>
         </section>
 
@@ -492,14 +493,32 @@ function App() {
           </div>
           <ul className="takeaways-list">
             <li className="takeaways-list__item">
-              The relationship between misinformation belief and voting behavior goes beyond
-              just political affiliation.
+              Misinformation belief was strongly associated with voting for Trump in 2020, and
+              that relationship held even after adjusting for political party, age, education,
+              and respondents&rsquo; 2016 vote.
             </li>
             <li className="takeaways-list__item">
-              Misinformation can matter for important political opinions and real decisions and
-              outcomes, not just abstract beliefs.
+              Party affiliation explains part of this relationship, but not all of it:
+              misinformation belief and political ideology don&rsquo;t capture the same
+              relationship with vote choice.
+            </li>
+            <li className="takeaways-list__item">
+              These findings extend prior work linking misinformation exposure to political
+              ideology (Mosleh &amp; Rand), showing that individual belief is tied not just to
+              ideology but to real voting behavior.
             </li>
           </ul>
+
+          <div className="limitations-note">
+            <p className="limitations-note__label">Limitations</p>
+            <p className="limitations-note__text">
+              This analysis is observational, so it cannot establish that misinformation
+              beliefs caused differences in vote choice&mdash;reverse causality, unmeasured
+              confounders, and panel attrition are all possible alternative explanations. The
+              final model&rsquo;s much smaller subsample (n = 1,406) also means its estimate
+              carries more statistical uncertainty.
+            </p>
+          </div>
         </section>
 
         <section className="contact" id="contact">
